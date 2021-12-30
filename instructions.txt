@@ -1,0 +1,9 @@
+Lamp ON => Left Mouse Button
+
+Lamp Off => Right Mouse Button
+
+Look Left => Left Arrow Key
+
+Look Right => Right Arrow Key
+
+Look Front => Up Arrow Key

@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1640802009 source:d:\opengl codes\180101221\main.cpp
+1640857352 source:d:\opengl codes\180101221\main.cpp
 	<GL/gl.h>
 	<GL/glut.h>
+	<iostream>
 
 1512591001 c:\mingw\include\gl\gl.h
 

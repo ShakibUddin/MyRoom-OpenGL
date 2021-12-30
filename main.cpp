@@ -1,6 +1,8 @@
 
 #include <GL/gl.h>
 #include <GL/glut.h>
+#include <iostream>
+
 bool lampOn = false;
 GLdouble left = 5.0;
 GLdouble right = 13.0;
@@ -8,7 +10,6 @@ GLdouble bottom = 9.0;
 GLdouble top = 3.0;
 GLdouble nearValue = -10.0;
 GLdouble farValue = 10.0;
-GLdouble movement = 10;
 
 void drawLeftWall(){
     if(lampOn){
@@ -190,38 +191,33 @@ void mouseInput(int button, int state, int x, int y)
          break;
    }
 }
-void moveRight(){
-
+void lookRight(){
+    left = 9.0;
+    right = 13.0;
 }
-void moveLeft(){
-
+void lookLeft(){
+    left = 5.0;
+    right = 9.0;
 }
-void moveBack(){
-
-}
-void moveFront(){
-
+void lookFront(){
+    left = 5.0;
+    right = 13.0;
 }
 void specialKeyInput(int key, int x, int y)
 {
 	switch (key) {
 	    case GLUT_KEY_LEFT:
-            moveLeft();
+            lookLeft();
             glutPostRedisplay();
             break;
         case GLUT_KEY_RIGHT:
-            moveRight();
-            glutPostRedisplay();
-            break;
-        case GLUT_KEY_DOWN:
-            moveBack();
+            lookRight();
             glutPostRedisplay();
             break;
         case GLUT_KEY_UP:
-            moveFront();
+            lookFront();
             glutPostRedisplay();
             break;
-
         default:
 			break;
 	}
@@ -229,6 +225,7 @@ void specialKeyInput(int key, int x, int y)
 void display(void)
 {
 
+    init ();
     glClear (GL_COLOR_BUFFER_BIT);
 
     drawLeftWall();
@@ -258,11 +255,11 @@ int main(int argc, char** argv)
     glutInitWindowSize (800, 800);
     glutInitWindowPosition (100, 100);
     glutCreateWindow ("My Room - 180101221");
-    init ();
     glutDisplayFunc(display);
     glutSpecialFunc(specialKeyInput);
     glutMouseFunc(mouseInput);
     glutMainLoop();
+
     return 0; /* ISO C requires main to return int. */
 }
 
